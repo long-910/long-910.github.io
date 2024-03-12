@@ -23,6 +23,6 @@
 #   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
 #   url:  ''                  # Fill with your Linkedin homepage
 #
-- type: stack-overflow
-  icon: "fab fa-stack-overflow"
-  url: "" # Fill with your stackoverflow homepage
+#- type: stack-overflow
+#  icon: "fab fa-stack-overflow"
+#  url: "" # Fill with your stackoverflow homepage
