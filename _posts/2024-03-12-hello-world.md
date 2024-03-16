@@ -2,9 +2,9 @@
 layout: post
 title: Hello World
 date: 2024-03-12 23:00:00 +0900
-category:
+category: [Programming, C]
 author:
-tags: [C]
+tags: [c]
 summary:
 ---
 
