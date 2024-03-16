@@ -36,10 +36,14 @@ order: 3
 
 ### Mac
 
-- [iTerm2](https://iterm2.com/index.html)
+- [iTerm2](https://iterm2.com/index.html) Terminal emulator for Mac OS
 - [Alfred](https://www.alfredapp.com/)
 - [OnyX](https://www.titanium-software.fr/en/onyx.html)
 - [VMware Fusion](https://www.vmware.com/products/fusion.html)
+
+### Linux
+
+- [Meld](https://meldmerge.org/) Visual diff and merge tool
 
 ### Browser
 
