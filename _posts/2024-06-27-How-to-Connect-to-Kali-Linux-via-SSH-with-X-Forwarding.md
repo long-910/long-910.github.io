@@ -2,10 +2,16 @@
 layout: post
 title: How to Connect to Kali Linux via SSH with X Forwarding
 date: 2024-06-27 01:35
-category: 
+category: [Linux]
 author: 
-tags: []
+tags: [Linux, SSH]
 summary: 
+img_path: /assets/img/screenshots
+image:
+  path: Xquartz.png
+  width: 100%
+  height: 100%
+  alt: Xquartz
 ---
 
 # Kali LinuxへSSHでX接続する方法
