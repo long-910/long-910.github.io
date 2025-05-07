@@ -1,6 +1,6 @@
 # My Blog
 
-[>me.910.one](https://me.910.one/)
+[>910.one](https://910.one/)
 
 [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]
 [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
