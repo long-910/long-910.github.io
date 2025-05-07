@@ -15,6 +15,12 @@
 
 Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).
 
+```terminal
+bundle exec jekyll s
+```
+
+Access <http://127.0.0.1:4000>
+
 ## License
 
 This work is published under [MIT][mit] License.
