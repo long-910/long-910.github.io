@@ -6,9 +6,8 @@ category: [Linux]
 author: 
 tags: [Linux, SSH]
 summary: 
-img_path: /assets/img/screenshots
 image:
-  path: Xquartz.png
+  path: /assets/img/screenshots/Xquartz.png
   width: 100%
   height: 100%
   alt: Xquartz
