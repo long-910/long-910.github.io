@@ -6,6 +6,7 @@ category: [Programming, Tools]
 author:
 tags: [cursor, ide]
 summary: この数日間のCursorの使用体験についての記事です。
+img_path: /assets/img/screenshots
 image:
   path: https://unpkg.com/@lobehub/icons-static-webp@latest/light/cursor.webp
   width: 400px

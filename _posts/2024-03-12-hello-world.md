@@ -6,8 +6,9 @@ category: [Programming, C]
 author:
 tags: [c]
 summary:
+img_path: /assets/img/screenshots
 image:
-  path: /assets/img/screenshots/hello-world.png
+  path: hello-world.png
   width: 100%
   height: 100%
   alt: heloop world
