@@ -1,12 +1,20 @@
 ---
 layout: post
-
 title: "Zennの記事をGitHub Pagesに自動同期するCIの構築方法"
-emoji: "🔄"
-type: "tech"
-topics: ["github", "ci", "github-actions", "zenn", "github-pages"]
-published: true
+img_path: /assets/img/screenshots
+image:
+  path: zenn.png
+  width: 100%
+  height: 100%
+  alt: Zenn
+category: [Tech]
+tags: [ ["github", "ci", "github-actions", "zenn", "github-pages"]]
 ---
+
+
+---
+
+この記事は[Zenn](https://zenn.dev/long_910/articles/)でも公開しています。
 
 # Zenn の記事を GitHub Pages に自動同期する CI の構築方法
 
@@ -88,7 +96,57 @@ jobs:
               
               # フロントマターを変換
               temp_file=$(mktemp)
-              sed '1s/^---/---\nlayout: post\n/' "$file" > "$temp_file"
+              
+              # フロントマターの変換処理
+              awk '
+              BEGIN { in_frontmatter = 0; frontmatter_done = 0; }
+              /^---$/ {
+                if (!in_frontmatter) {
+                  in_frontmatter = 1;
+                  print "---";
+                  print "layout: post";
+                  next;
+                } else {
+                  in_frontmatter = 0;
+                  frontmatter_done = 1;
+                  print "---";
+                  next;
+                }
+              }
+              in_frontmatter {
+                if ($0 ~ /^title:/) {
+                  print $0;
+                  next;
+                }
+                if ($0 ~ /^emoji:/) {
+                  print "img_path: /assets/img/screenshots";
+                  print "image:";
+                  print "  path: zenn.png";
+                  print "  width: 100%";
+                  print "  height: 100%";
+                  print "  alt: Zenn";
+                  next;
+                }
+                if ($0 ~ /^type:/) {
+                  print "category: [Tech]";
+                  next;
+                }
+                if ($0 ~ /^topics:/) {
+                  print "tags: [" substr($0, 8) "]";
+                  next;
+                }
+                if ($0 ~ /^published_at:/) {
+                  print "date: " substr($0, 14);
+                  next;
+                }
+                next;
+              }
+              frontmatter_done && !printed_link {
+                print "\n\n---\n\nこの記事は[Zenn](https://zenn.dev/long_910/articles/" substr(filename, 1, length(filename)-3) ")でも公開しています。";
+                printed_link = 1;
+              }
+              { print; }
+              ' "$file" > "$temp_file"
               
               # 既存ファイルとの比較
               if [ -f "$target_file" ]; then
@@ -139,15 +197,65 @@ jobs:
 
 3. **記事の変換処理**:
    - ファイル名はそのまま保持
-   - フロントマターに`layout: post`を追加
+   - フロントマターの変換
    - 既存ファイルとの内容比較
    - 変更がある場合のみ更新
 
-### 5. ファイル処理の詳細
+### 5. フロントマターの変換
+
+Zenn のフロントマターを GitHub Pages の形式に変換します：
+
+```yaml
+# Zennのフロントマター
+---
+layout: post
+title: "記事のタイトル"
+img_path: /assets/img/screenshots
+image:
+  path: zenn.png
+  width: 100%
+  height: 100%
+  alt: Zenn
+category: [Tech]
+tags: [ ["tag1", "tag2"]]
+date:  "2024-03-21 12:00"
+---
+# 変換後のフロントマター
+---
+layout: post
+title: "記事のタイトル"
+---
+```
+
+変換の主なポイント：
+
+1. **基本設定**:
+
+   - `layout: post`を追加
+   - タイトルはそのまま保持
+
+2. **画像設定**:
+
+   - Zenn のアイコンをデフォルト画像として設定
+   - 画像パスとサイズを指定
+
+3. **カテゴリーとタグ**:
+
+   - `type`を`category`に変換
+   - `topics`を`tags`に変換
+
+4. **日付**:
+
+   - `published_at`を`date`に変換
+
+5. **Zenn へのリンク**:
+   - 記事の最後に Zenn の記事へのリンクを追加
+
+### 6. ファイル処理の詳細
 
 1. **新規ファイルの場合**:
 
-   - フロントマターに`layout: post`を追加
+   - フロントマターを変換
    - そのままのファイル名でターゲットディレクトリにコピー
 
 2. **既存ファイルの場合**:
@@ -172,7 +280,7 @@ jobs:
 
 2. **フロントマター**:
    - Zenn の形式のフロントマターを使用
-   - CI が自動的に`layout: post`を追加
+   - 必要なメタデータは全て含める
 
 ## 動作確認方法
 
@@ -207,6 +315,8 @@ jobs:
 - ミスのリスクを低減
 - 既存記事の更新を安全に処理
 - 不要な更新を防止
+- フロントマターの自動変換
+- Zenn との相互リンク
 
 ## 参考リンク
 

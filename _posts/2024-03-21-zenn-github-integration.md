@@ -1,13 +1,21 @@
 ---
 layout: post
-
 title: "ZennとGitHubの連携方法とzenn-cliの使い方"
-emoji: "📚"
-type: "tech"
-topics: ["zenn", "github", "cli", "markdown"]
-published: true
-published_at: "2025-05-25 01:10"
+img_path: /assets/img/screenshots
+image:
+  path: zenn.png
+  width: 100%
+  height: 100%
+  alt: Zenn
+category: [Tech]
+tags: [ ["zenn", "github", "cli", "markdown"]]
+date:  "2025-05-25 01:10"
 ---
+
+
+---
+
+この記事は[Zenn](https://zenn.dev/long_910/articles/)でも公開しています。
 
 # Zenn と GitHub の連携方法と zenn-cli の使い方
 
@@ -82,11 +90,16 @@ zenn preview
 
 ```yaml
 ---
+layout: post
 title: "記事のタイトル"
-emoji: "🎨"
-type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["タグ1", "タグ2"]
-published: true
+img_path: /assets/img/screenshots
+image:
+  path: zenn.png
+  width: 100%
+  height: 100%
+  alt: Zenn
+category: [Tech]
+tags: [ ["タグ1", "タグ2"]]
 ---
 ```
 
