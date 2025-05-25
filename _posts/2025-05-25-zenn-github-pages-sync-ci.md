@@ -51,131 +51,34 @@ Zenn で記事を書いていると、同じ内容を GitHub Pages のブログ�
 
 ### 3. GitHub Actions ワークフローの作成
 
-`.github/workflows/sync-articles.yml`ファイルを作成し、以下の内容を記述します：
+`.github/workflows/sync-articles.yml`ファイルを作成し、以下の内容を記述します。
+**以下の項目は必ず自分の環境に合わせて変更してください：**
+
+1. **リポジトリ名の変更**:
 
 ```yaml
-name: Sync Articles to GitHub Pages
+repository: long-910/long-910.github.io # 自分のGitHub Pagesリポジトリ名に変更
+```
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - "articles/**"
+2. **Git 設定の変更**:
 
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source repository
-        uses: actions/checkout@v3
+```yaml
+git config --global user.name "long-910"  # 自分のGitHubユーザー名に変更
+git config --global user.email "7323488+long-910@users.noreply.github.com"  # 自分のGitHub noreplyメールアドレスに変更
+```
 
-      - name: Checkout target repository
-        uses: actions/checkout@v3
-        with:
-          repository: long-910/long-910.github.io
-          path: target
-          token: ${{ secrets.GH_PAT }}
+3. **Zenn のユーザー名の変更**:
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
+```yaml
+https://zenn.dev/long910/articles/ # 自分のZennユーザー名に変更
+```
 
-      - name: Install dependencies
-        run: |
-          npm install -g zenn-cli
+4. **画像パスの変更**:
 
-      - name: Process and sync articles
-        run: |
-          # 記事ファイルを処理
-          for file in articles/*.md; do
-            if [ -f "$file" ]; then
-              # ファイル名をそのまま使用
-              filename=$(basename "$file")
-              target_file="target/_posts/$filename"
-              
-              # フロントマターを変換
-              temp_file=$(mktemp)
-              
-              # フロントマターの変換処理
-              awk '
-              BEGIN { in_frontmatter = 0; frontmatter_done = 0; }
-              /^---$/ {
-                if (!in_frontmatter) {
-                  in_frontmatter = 1;
-                  print "---";
-                  print "layout: post";
-                  next;
-                } else {
-                  in_frontmatter = 0;
-                  frontmatter_done = 1;
-                  print "---";
-                  next;
-                }
-              }
-              in_frontmatter {
-                if ($0 ~ /^title:/) {
-                  print $0;
-                  next;
-                }
-                if ($0 ~ /^emoji:/) {
-                  print "img_path: /assets/img/screenshots";
-                  print "image:";
-                  print "  path: zenn.png";
-                  print "  width: 100%";
-                  print "  height: 100%";
-                  print "  alt: Zenn";
-                  next;
-                }
-                if ($0 ~ /^type:/) {
-                  print "category: [Tech]";
-                  next;
-                }
-                if ($0 ~ /^topics:/) {
-                  print "tags: [" substr($0, 8) "]";
-                  next;
-                }
-                if ($0 ~ /^published_at:/) {
-                  print "date: " substr($0, 14);
-                  next;
-                }
-                next;
-              }
-              frontmatter_done && !printed_link {
-                print "\n\n---\n\nこの記事は[Zenn](https://zenn.dev/long_910/articles/" substr(filename, 1, length(filename)-3) ")でも公開しています。";
-                printed_link = 1;
-              }
-              { print; }
-              ' "$file" > "$temp_file"
-              
-              # 既存ファイルとの比較
-              if [ -f "$target_file" ]; then
-                # ファイルの内容を比較
-                if ! cmp -s "$temp_file" "$target_file"; then
-                  echo "Updating existing file: $filename"
-                  cp "$temp_file" "$target_file"
-                else
-                  echo "No changes detected in: $filename"
-                fi
-              else
-                echo "Creating new file: $filename"
-                cp "$temp_file" "$target_file"
-              fi
-              
-              # 一時ファイルを削除
-              rm "$temp_file"
-            fi
-          done
-
-      - name: Commit and push changes
-        run: |
-          cd target
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add _posts/
-          git commit -m "Sync articles from Zenn repository" || echo "No changes to commit"
-          git push
+```yaml
+img_path: /assets/img/logos # 自分のブログの画像パスに変更
+image:
+  path: logo-only.svg # 自分のブログのデフォルト画像に変更
 ```
 
 ### 4. ワークフローの説明
