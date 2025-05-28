@@ -15,6 +15,7 @@ date: "2025-05-25 02:10"
 
 ---
 
+
 この記事は[Zenn](https://zenn.dev/long910/articles/)でも公開しています。
 
 # Zenn の記事を GitHub Pages に自動同期する CI の構築方法
@@ -153,7 +154,7 @@ title: "記事のタイトル"
    - `published_at`を`date`に変換
 
 5. **Zenn へのリンク**:
-   - 記事の最後に Zenn の記事へのリンクを追加
+   - GithubPagesの記事の先頭に Zenn の記事へのリンクを追加
 
 ### 6. ファイル処理の詳細
 
