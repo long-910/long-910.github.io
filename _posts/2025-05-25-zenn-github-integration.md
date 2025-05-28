@@ -15,8 +15,7 @@ date: "2025-05-25 01:10"
 
 ---
 
-
-この記事は[Zenn](https://zenn.dev/long910/articles/)でも公開しています。
+この記事は[Zenn](https://zenn.dev/long910/articles/2025-05-25-zenn-github-integration)でも公開しています。
 
 # Zenn と GitHub の連携方法と zenn-cli の使い方
 

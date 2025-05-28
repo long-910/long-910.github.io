@@ -15,8 +15,7 @@ date: "2025-05-25 02:10"
 
 ---
 
-
-この記事は[Zenn](https://zenn.dev/long910/articles/)でも公開しています。
+この記事は[Zenn](https://zenn.dev/long910/articles/2025-05-25-zenn-github-pages-sync-ci)でも公開しています。
 
 # Zenn の記事を GitHub Pages に自動同期する CI の構築方法
 
@@ -160,7 +159,7 @@ title: "記事のタイトル"
 
 1. **新規ファイルの場合**:
 
-   - フロントマターを変換
+   - AWKを使用してフロントマターを変換
    - そのままのファイル名でターゲットディレクトリにコピー
 
 2. **既存ファイルの場合**:
