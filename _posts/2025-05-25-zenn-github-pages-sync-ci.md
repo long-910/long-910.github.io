@@ -8,8 +8,8 @@ image:
   height: 100%
   alt: Zenn
 category: [Tech]
-tags: [ ["github", "ci", "github-actions", "zenn", "github-pages"]]
-date:  "2025-05-25 02:10"
+tags: ["github", "ci", "github-actions", "zenn", "github-pages"]
+date: "2025-05-25 02:10"
 ---
 
 
@@ -121,8 +121,8 @@ image:
   height: 100%
   alt: Zenn
 category: [Tech]
-tags: [ ["tag1", "tag2"]]
-date:  "2024-03-21 12:00"
+tags: ["tag1", "tag2"]
+date: "2024-03-21 12:00"
 ---
 # 変換後のフロントマター
 ---

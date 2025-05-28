@@ -8,8 +8,8 @@ image:
   height: 100%
   alt: Zenn
 category: [Tech]
-tags: [ ["zenn", "github", "cli", "markdown"]]
-date:  "2025-05-25 01:10"
+tags: ["zenn", "github", "cli", "markdown"]
+date: "2025-05-25 01:10"
 ---
 
 
@@ -99,7 +99,7 @@ image:
   height: 100%
   alt: Zenn
 category: [Tech]
-tags: [ ["タグ1", "タグ2"]]
+tags: ["タグ1", "タグ2"]
 ---
 ```
 

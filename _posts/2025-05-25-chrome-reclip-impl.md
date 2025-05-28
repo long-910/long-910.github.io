@@ -8,8 +8,8 @@ image:
   height: 100%
   alt: Zenn
 category: [Tech]
-tags: [ ["chrome-extension", "typescript", "vite", "i18n", "cursor"]]
-date:  "2025-05-25 20:42"
+tags: ["chrome-extension", "typescript", "vite", "i18n", "cursor"]
+date: "2025-05-25 20:42"
 ---
 
 
