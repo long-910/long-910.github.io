@@ -90,30 +90,7 @@ code --install-extension yahyabatulu.vscode-markdown-alert
 
 ![](https://storage.googleapis.com/zenn-user-upload/ad0fbcaa9d1d-20250602.png)
 
-## アラートのカスタマイズ
-
-### スタイルのカスタマイズ
-
-VSCode の設定で、アラートのスタイルをカスタマイズすることができます：
-
-```json
-{
-  "markdown-alert.styles": {
-    "note": {
-      "icon": "📝",
-      "color": "#0366d6",
-      "backgroundColor": "#f1f8ff"
-    },
-    "warning": {
-      "icon": "⚠️",
-      "color": "#d73a49",
-      "backgroundColor": "#ffeef0"
-    }
-  }
-}
-```
-
-### ショートカットの活用
+## ショートカットの活用
 
 VSCode のスニペット機能を使用して、アラートを素早く挿入することができます：
 
@@ -123,9 +100,43 @@ VSCode のスニペット機能を使用して、アラートを素早く挿入�
     "prefix": "alert-note",
     "body": ["> [!NOTE]", "> $1"],
     "description": "Insert a note alert"
+  },
+  "Markdown Alert Tip": {
+    "prefix": "alert-tip",
+    "body": ["> [!TIP]", "> $1"],
+    "description": "Insert a tip alert"
+  },
+  "Markdown Alert Important": {
+    "prefix": "alert-important",
+    "body": ["> [!IMPORTANT]", "> $1"],
+    "description": "Insert an important alert"
+  },
+  "Markdown Alert Warning": {
+    "prefix": "alert-warning",
+    "body": ["> [!WARNING]", "> $1"],
+    "description": "Insert a warning alert"
+  },
+  "Markdown Alert Caution": {
+    "prefix": "alert-caution",
+    "body": ["> [!CAUTION]", "> $1"],
+    "description": "Insert a caution alert"
   }
 }
 ```
+
+### VSCode スニペット機能の設定・利用手順
+
+1. **コマンドパレットを開く**  
+   `Ctrl + Shift + P`（または`Cmd + Shift + P`）を押します。
+2. **「スニペット: ユーザースニペットの構成」を選択**  
+   「snip」と入力し、「ユーザースニペットの構成」を選択します。
+3. **`markdown.json` を選択**  
+   Markdown 用のスニペットを作成する場合は `markdown.json` を選択します。
+4. **上記のスニペット内容を貼り付けて保存**
+
+---
+layout: post
+---
 
 ## 実践的な使用例
 
