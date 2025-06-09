@@ -202,3 +202,9 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
+  output: true
+
+# Mermaid settings
+mermaid:
+  enabled: true
+  theme: default
