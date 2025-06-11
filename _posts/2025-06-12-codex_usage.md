@@ -9,7 +9,7 @@ image:
   alt: Zenn
 category: [Tech]
 tags: ["codex", "ai", "workflow", "automation"]
-date: "2025-06-12 12:00"
+date: "2025-06-12 01:00"
 ---
 
 
@@ -20,6 +20,7 @@ date: "2025-06-12 12:00"
 # Codexの使用方法ガイド
 
 *本記事はCodexによって作成されました。*
+> *記事の主張は全てCodexによるものである。←この行のみ著者が追記しました。*
 
 ## はじめに
 
