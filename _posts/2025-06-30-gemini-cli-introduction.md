@@ -18,7 +18,7 @@ date: "2025-06-30 19:00"
 この記事は[Zenn](https://zenn.dev/long910/articles/2025-06-30-gemini-cli-introduction)でも公開しています。
 
 :::message
-この記事は Cursor の AI 機能により自動生成されました。
+この記事は Gemini CLI により自動生成されました。
 :::
 
 ## はじめに
