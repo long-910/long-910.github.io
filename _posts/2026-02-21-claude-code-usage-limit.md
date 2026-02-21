@@ -1,11 +1,21 @@
 ---
+layout: post
 title: "Claude Code の使用量上限とうまく付き合う方法"
-emoji: "🧠"
-type: "tech"
-topics: ["claudecode", "claude", "ai", "効率化", "コスト削減"]
-published: true
-published_at: "2026-02-21 09:00"
+img_path: /assets/img/logos
+image:
+  path: logo-only.svg
+  width: 100%
+  height: 100%
+  alt: Zenn
+category: [Tech]
+tags: ["claudecode", "claude", "ai", "効率化", "コスト削減"]
+date: "2026-02-21 09:00"
 ---
+
+
+---
+
+この記事は[Zenn](https://zenn.dev/long910/articles/2026-02-21-claude-code-usage-limit)でも公開しています。
 
 ## はじめに
 
@@ -14,31 +24,7 @@ Claude Code を Pro プランで使っていると「すぐ上限に達して使
 この記事では、プランの仕組みを正しく理解したうえで、使用量を意識した具体的な使い方をまとめます。
 
 ---
-
-## プランと使用量制限の仕組み
-
-### プラン比較（2025年時点）
-
-| プラン | 価格 | 使用量の目安 |
-|--------|------|-------------|
-| Pro | $20/月 | ベースライン |
-| Max 5x | $100/月 | Pro の 5 倍 |
-| Max 20x | $200/月 | Pro の 20 倍 |
-
-### 5時間のローリングウィンドウ制限
-
-Pro/Max プランの使用量制限は「深夜0時リセット」ではなく、**最初のリクエストから5時間のローリングウィンドウ**で管理されます。つまり、1回のセッションで集中的に使うとあっという間に上限に到達します。
-
-さらに、Claude.ai（Web・デスクトップ・モバイル）と Claude Code の使用量は**共有**されています。ブラウザで Claude を使った分も消費されるため注意が必要です。
-
-### API キーの落とし穴
-
-環境変数 `ANTHROPIC_API_KEY` が設定されている場合、Claude Code はサブスクリプションではなく **API の従量課金**で動作します。意図せず設定されていると、サブスクリプションとは別に課金が発生するため確認が必要です。
-
-```bash
-echo $ANTHROPIC_API_KEY  # 設定されているか確認
-```
-
+layout: post
 ---
 
 ## 使用量を節約する具体的なテクニック
@@ -149,22 +135,7 @@ claude --max-turns 10
 ```
 
 ---
-
-## 使用量を確認するツール
-
-### ccusage（CLI ツール）
-
-Claude Code がローカルに保存する JSONL ファイルを解析して、トークン使用量とコストを集計してくれます。
-
-```bash
-npx ccusage          # 概要
-npx ccusage daily    # 日別使用量
-npx ccusage monthly  # 月別使用量
-npx ccusage blocks   # 5時間ウィンドウ別
-```
-
-モデル別の使用量内訳も確認でき、「どのモデルに一番使っているか」が一目でわかります。インストール不要で `npx` でそのまま実行できる点も便利です。
-
+layout: post
 ---
 
 ## 推奨ワークフロー
@@ -179,20 +150,4 @@ npx ccusage blocks   # 5時間ウィンドウ別
 6. **週次で `ccusage` でトレンドを分析**
 
 ---
-
-## まとめ
-
-Claude Code の使用量問題は、仕組みを理解して適切にコンテキストを管理することで大幅に改善できます。特に効果が大きいのは次の 3 点です。
-
-- **`/clear` の積極活用**：タスク完了ごとにリセット
-- **CLAUDE.md の整備**：毎回の説明コストをゼロに
-- **`ccusage` で可視化**：使用量の傾向を把握して行動を変える
-
-これらを組み合わせることで、Pro プランでも上限に達しにくい使い方ができるようになります。
-
-## 参考リンク
-
-- [Claude Code 公式ドキュメント - コスト管理](https://code.claude.com/docs/en/costs)
-- [Claude Code ベストプラクティス](https://code.claude.com/docs/en/best-practices)
-- [ccusage - GitHub](https://github.com/ryoppippi/ccusage)
-- [Claude Max プランとは？](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+layout: post
