@@ -17,6 +17,7 @@ date: "2026-02-22 12:00"
 
 この記事は[Zenn](https://zenn.dev/long910/articles/2026-02-22-mcp-introduction)でも公開しています。
 
+
 Claude Codeを使い始めてから、設定ファイルに `mcpServers` という項目があることに気づいていました。「MCP」という言葉もよく見かけるけど、ちゃんと理解できていなかったので、これを機にしっかり調べて自分でも使ってみることにしました。
 
 この記事は「MCPとは何か」を自分なりに整理しつつ、**実際に手を動かして設定するまでの記録**です。同じようにMCPが気になっている方の参考になれば。
@@ -63,7 +64,78 @@ MCPサーバーが提供できるものは主に3種類あります：
 - **Prompts（プロンプト）**: 再利用可能なプロンプトテンプレート
 
 ---
-layout: post
+
+## Claude CodeでMCPを使う
+
+Claude CodeはMCPクライアントとして動作します。設定したMCPサーバーのツールをAIが自動的に使えるようになります。
+
+まずはここから始めることにしました。
+
+### MCPサーバーの追加方法
+
+設定ファイルを直接編集する方法とCLIコマンドで追加する方法があります。CLIの方が手軽です。
+
+**CLIで追加（推奨）:**
+
+```bash
+# stdioトランスポートのMCPサーバーを追加
+claude mcp add <サーバー名> <コマンド> [引数...]
+
+# 例：Slackのmcpサーバーを追加
+claude mcp add slack npx -y @modelcontextprotocol/server-slack
+
+# 追加済みのサーバー一覧を確認
+claude mcp list
+
+# サーバーを削除
+claude mcp remove <サーバー名>
+```
+
+**設定ファイルを直接編集:**
+
+設定は `~/.claude/claude_desktop_config.json`（グローバル）または `.claude/settings.json`（プロジェクトローカル）で管理します。複数プロジェクトで使うものはグローバル、特定プロジェクト専用のものはローカルに書くのが良さそうです。
+
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxxx"
+      }
+    },
+    "slack": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
+      "env": {
+        "SLACK_BOT_TOKEN": "xoxb-xxxx",
+        "SLACK_TEAM_ID": "T0xxxx"
+      }
+    }
+  }
+}
+```
+
+設定後、Claude Codeを再起動するとMCPサーバーが有効になります。
+
+### 動作確認
+
+Claude Codeのセッション内で `/mcp` コマンドを実行すると、接続済みのMCPサーバーとその状態を確認できます。
+
+```
+/mcp
+```
+
+ツールが正しく認識されると、AIが自動的に使えるようになります。例えばGitHub MCPサーバーを追加していれば：
+
+```
+ユーザー: このリポジトリのオープンなIssue一覧を教えて
+
+Claude: GitHubのMCPツールを使ってIssueを取得します...
+（自動でGitHub APIを呼び出してIssue一覧を返す）
+```
+
 ---
 
 ## よく使われるMCPサーバー
@@ -93,7 +165,48 @@ layout: post
 自分はまずSlackとGitHubのMCPを試してみようと思っています。業務でよく使うツールをAIから直接操作できるようになると、かなり効率が上がりそうです。
 
 ---
-layout: post
+
+## Filesystem MCPサーバーで試してみる
+
+まず一番手軽そうなFilesystem MCPサーバーから試してみました。指定したディレクトリへのファイル操作をAIに許可できます。
+
+### セットアップ
+
+```bash
+claude mcp add filesystem npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir
+```
+
+または設定ファイルに直接記述：
+
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/yourname/Documents",
+        "/Users/yourname/Desktop"
+      ]
+    }
+  }
+}
+```
+
+複数のパスを引数に渡すことで、AIがアクセスできるディレクトリを複数指定できます。ホームディレクトリ全体を渡すのはさすがに怖いので、プロジェクト単位で絞るのが良いと思います。
+
+### 使用例
+
+```
+ユーザー: Documentsフォルダの中にある.txtファイルを一覧表示して
+
+Claude: filesystemツールを使ってファイルを一覧取得します...
+  - memo.txt
+  - todo.txt
+  - meeting-notes.txt
+```
+
 ---
 
 ## MCPサーバーを自作する
@@ -181,7 +294,29 @@ claude mcp add weather python /path/to/server.py
 ```
 
 ---
-layout: post
+
+## CursorでMCPを使う
+
+CursorもMCPクライアントとして対応しています。
+
+設定方法：**Cursor Settings → MCP** から、以下の形式のJSONを入力します。
+
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxxx"
+      }
+    }
+  }
+}
+```
+
+設定後はCursorのAIチャットから自動的にMCPツールが利用できるようになります。
+
 ---
 
 ## セキュリティの考慮点
@@ -196,7 +331,20 @@ MCPサーバーはAIに強力な権限を与えます。利用時は以下の点
 `.gitignore`に設定ファイルを追加するか、ローカル設定とグローバル設定を使い分けることを推奨します。
 
 ---
-layout: post
+
+## まとめ
+
+| ポイント | 内容 |
+|---|---|
+| MCPとは | AIとツール・データを繋ぐ標準プロトコル |
+| メリット | 一度作れば複数のAIツールで使い回せる |
+| 始め方 | `claude mcp add` コマンドで公式サーバーをすぐ追加可能 |
+| 拡張性 | TypeScript/Pythonで自作サーバーを作成できる |
+
+MCPを調べてみて、「思ったより敷居が低い」というのが正直な感想です。`claude mcp add` コマンド1つで試せるので、難しく考えずにまず動かしてみるのが一番だと思いました。
+
+自分はこれからSlackとGitHubのMCPを使い込んでいく予定です。実際に使い始めたらまた記事にしたいと思います。
+
 ---
 
 ## 参考リンク

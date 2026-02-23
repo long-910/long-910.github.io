@@ -17,6 +17,7 @@ date: "2025-05-25 02:10"
 
 この記事は[Zenn](https://zenn.dev/long910/articles/2025-05-25-zenn-github-pages-sync-ci)でも公開しています。
 
+
 # Zenn の記事を GitHub Pages に自動同期する CI の構築方法
 
 ## はじめに
@@ -112,22 +113,26 @@ Zenn のフロントマターを GitHub Pages の形式に変換します：
 ```yaml
 # Zennのフロントマター
 ---
-layout: post
 title: "記事のタイトル"
-img_path: /assets/img/logos
-image:
-  path: logo-only.svg
-  width: 100%
-  height: 100%
-  alt: Zenn
-category: [Tech]
-tags: ["tag1", "tag2"]
-date: "2024-03-21 12:00"
+emoji: "🎨"
+type: "tech"
+topics: ["tag1", "tag2"]
+published: true
+published_at: "2024-03-21 12:00"
 ---
 # 変換後のフロントマター
 ---
 layout: post
 title: "記事のタイトル"
+img_path: /assets/img/screenshots
+image:
+  path: zenn.png
+  width: 100%
+  height: 100%
+  alt: Zenn
+category: [Tech]
+tags: [tag1, tag2]
+date: 2024-03-21 12:00
 ---
 ```
 

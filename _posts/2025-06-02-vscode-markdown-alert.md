@@ -17,6 +17,7 @@ date: "2025-06-02 20:00"
 
 この記事は[Zenn](https://zenn.dev/long910/articles/2025-06-02-vscode-markdown-alert)でも公開しています。
 
+
 # VSCode で GitHub スタイルのアラートを実現する「Markdown Alert」拡張機能の使い方
 
 > [!NOTE]
@@ -135,7 +136,13 @@ VSCode のスニペット機能を使用して、アラートを素早く挿入�
 4. **上記のスニペット内容を貼り付けて保存**
 
 ---
-layout: post
+
+#### 使い方
+
+- Markdown ファイル（.md）で `alert-note` などと入力し、`Tab`キーを押すと、対応するアラート構文が自動で挿入されます。
+- `$1` の部分にカーソルが自動で移動するので、すぐに内容を入力できます。
+- 他のアラートも同様に、`alert-tip`、`alert-important`、`alert-warning`、`alert-caution` で展開できます。
+
 ---
 
 ## 実践的な使用例

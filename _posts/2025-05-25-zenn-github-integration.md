@@ -17,6 +17,7 @@ date: "2025-05-25 01:10"
 
 この記事は[Zenn](https://zenn.dev/long910/articles/2025-05-25-zenn-github-integration)でも公開しています。
 
+
 # Zenn と GitHub の連携方法と zenn-cli の使い方
 
 ## はじめに
@@ -90,16 +91,11 @@ zenn preview
 
 ```yaml
 ---
-layout: post
 title: "記事のタイトル"
-img_path: /assets/img/logos
-image:
-  path: logo-only.svg
-  width: 100%
-  height: 100%
-  alt: Zenn
-category: [Tech]
-tags: ["タグ1", "タグ2"]
+emoji: "🎨"
+type: "tech" # tech: 技術記事 / idea: アイデア
+topics: ["タグ1", "タグ2"]
+published: true
 ---
 ```
 
