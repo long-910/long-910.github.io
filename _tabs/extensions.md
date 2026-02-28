@@ -56,11 +56,6 @@ This is the official website of VS Code publisher **long-kudo**.
 
 **VSCode View Charset** shows the character encoding of the currently open file in the VS Code status bar. Essential for multilingual projects and legacy codebases where encoding issues are common.
 
-<img src="/assets/img/extensions/view-charset.png"
-     alt="VSCode View Charset — file encoding shown in the VS Code status bar"
-     style="max-width:100%;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.2);margin:1rem 0"
-     onerror="this.style.display='none'">
-
 ### Features
 
 - Detects and displays file encoding (charset) in the status bar
@@ -133,11 +128,6 @@ This is the official website of VS Code publisher **long-kudo**.
 **[Marketplace からインストール](https://marketplace.visualstudio.com/items?itemName=long-kudo.vscode-view-charset)**
 
 **VSCode View Charset** は、現在開いているファイルの文字コード（エンコーディング）を VS Code のステータスバーに表示する拡張機能です。多言語プロジェクトやレガシーシステムでの文字化け調査に役立ちます。
-
-<img src="/assets/img/extensions/view-charset.png"
-     alt="VSCode View Charset — VS Code ステータスバーにファイルの文字コードを表示"
-     style="max-width:100%;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.2);margin:1rem 0"
-     onerror="this.style.display='none'">
 
 ### 主な機能
 
