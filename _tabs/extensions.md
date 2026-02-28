@@ -7,7 +7,8 @@ description: VS Code extensions by long-kudo — Claude Status and View Charset.
 
 <div id="lang-switch" style="margin-bottom:1.5rem">
   <button id="btn-en" onclick="switchLang('en')" style="margin-right:.5rem;padding:.3rem .8rem;border-radius:4px;border:2px solid;cursor:pointer">🇺🇸 English</button>
-  <button id="btn-ja" onclick="switchLang('ja')" style="padding:.3rem .8rem;border-radius:4px;border:1px solid;cursor:pointer">🇯🇵 日本語</button>
+  <button id="btn-ja" onclick="switchLang('ja')" style="margin-right:.5rem;padding:.3rem .8rem;border-radius:4px;border:1px solid;cursor:pointer">🇯🇵 日本語</button>
+  <button id="btn-zh" onclick="switchLang('zh')" style="padding:.3rem .8rem;border-radius:4px;border:1px solid;cursor:pointer">🇨🇳 中文</button>
 </div>
 
 <div id="content-en" class="lang-content" markdown="1">
@@ -156,22 +157,99 @@ This is the official website of VS Code publisher **long-kudo**.
 
 </div>
 
+<div id="content-zh" class="lang-content" style="display:none" markdown="1">
+
+本网站（https://910.jp）是 VS Code 发布者 **long-kudo** 的官方网站。
+
+[在 Visual Studio Marketplace 查看全部扩展 →](https://marketplace.visualstudio.com/publishers/long-kudo)
+
+---
+
+## VSCode Claude Status
+
+**[在 Marketplace 安装](https://marketplace.visualstudio.com/items?itemName=long-kudo.vscode-claude-status)**
+
+**VSCode Claude Status** 可直接在 VS Code 状态栏中显示 Claude AI 的会话状态，让您无需离开编辑器即可实时监控连接状态。
+
+<img src="/assets/img/extensions/claude-status-webview.png"
+     alt="VSCode Claude Status — 显示 Claude 会话详情的 WebView 面板"
+     style="max-width:100%;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.2);margin:1rem 0 .5rem"
+     onerror="this.style.display='none'">
+
+<img src="/assets/img/extensions/claude-status-statusbar.png"
+     alt="VSCode Claude Status — VS Code 状态栏中显示的 Claude 状态"
+     style="max-width:100%;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.2);margin:.5rem 0 1rem"
+     onerror="this.style.display='none'">
+
+### 主要功能
+
+- 在状态栏中实时显示 Claude 会话状态
+- 会话变化时自动更新
+- 轻量级 — 资源占用极少
+- 无需额外权限
+
+### 安装与使用
+
+1. 打开 VS Code，进入扩展面板（`Ctrl+Shift+X`）
+2. 搜索 **"Claude Status"**，或直接打开 [Marketplace 页面](https://marketplace.visualstudio.com/items?itemName=long-kudo.vscode-claude-status)
+3. 点击 **安装**
+4. Claude 状态指示器将自动出现在状态栏中
+
+---
+
+## VSCode View Charset
+
+**[在 Marketplace 安装](https://marketplace.visualstudio.com/items?itemName=long-kudo.vscode-view-charset)**
+
+**VSCode View Charset** 在 VS Code 状态栏中显示当前文件的字符编码，对多语言项目和遗留代码库中的编码问题排查非常实用。
+
+### 主要功能
+
+- 在状态栏中检测并显示文件字符编码
+- 支持 UTF-8、Shift-JIS、EUC-JP 等多种编码格式
+- 零配置 — 安装即用
+- 轻量快速
+
+### 安装与使用
+
+1. 打开 VS Code，进入扩展面板（`Ctrl+Shift+X`）
+2. 搜索 **"View Charset"**，或直接打开 [Marketplace 页面](https://marketplace.visualstudio.com/items?itemName=long-kudo.vscode-view-charset)
+3. 点击 **安装**
+4. 打开任意文件 — 字符编码将自动显示在状态栏中
+
+---
+
+## 发布者信息
+
+| | |
+|---|---|
+| 发布者 | **long-kudo** |
+| 官方网站 | [https://910.jp](https://910.jp) |
+| Marketplace | [marketplace.visualstudio.com/publishers/long-kudo](https://marketplace.visualstudio.com/publishers/long-kudo) |
+| 隐私政策 | [/privacy-policy/](/privacy-policy/) |
+
+</div>
+
 <script>
+var LANGS = ['en', 'ja', 'zh'];
 function switchLang(lang) {
-  document.querySelectorAll('.lang-content').forEach(function(el) {
-    el.style.display = 'none';
+  LANGS.forEach(function(l) {
+    document.getElementById('content-' + l).style.display = 'none';
+    var btn = document.getElementById('btn-' + l);
+    btn.style.borderWidth = '1px';
+    btn.style.fontWeight  = 'normal';
   });
   document.getElementById('content-' + lang).style.display = 'block';
-  document.getElementById('btn-en').style.borderWidth = lang === 'en' ? '2px' : '1px';
-  document.getElementById('btn-en').style.fontWeight  = lang === 'en' ? 'bold' : 'normal';
-  document.getElementById('btn-ja').style.borderWidth = lang === 'ja' ? '2px' : '1px';
-  document.getElementById('btn-ja').style.fontWeight  = lang === 'ja' ? 'bold' : 'normal';
+  var active = document.getElementById('btn-' + lang);
+  active.style.borderWidth = '2px';
+  active.style.fontWeight  = 'bold';
   try { localStorage.setItem('extLang', lang); } catch(e) {}
 }
 (function() {
   var saved = '';
   try { saved = localStorage.getItem('extLang'); } catch(e) {}
-  var lang = saved || (navigator.language && navigator.language.startsWith('ja') ? 'ja' : 'en');
-  switchLang(lang);
+  var nav = (navigator.language || '').toLowerCase();
+  var detected = nav.startsWith('zh') ? 'zh' : nav.startsWith('ja') ? 'ja' : 'en';
+  switchLang(saved || detected);
 })();
 </script>
