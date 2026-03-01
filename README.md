@@ -6,6 +6,7 @@
 [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
 [![Build and Deploy](https://github.com/long-910/long-910.github.io/actions/workflows/pages-deploy.yml/badge.svg)](https://github.com/long-910/long-910.github.io/actions/workflows/pages-deploy.yml)
 [![pages-build-deployment](https://github.com/long-910/long-910.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/long-910/long-910.github.io/actions/workflows/pages/pages-build-deployment)
+[![Sponsor](https://img.shields.io/badge/Sponsor-GitHub-pink?logo=github)](https://github.com/sponsors/long-910)
 
 ## Theme Source
 
