@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Claude Code のAgent Teamsで複数AIが協調するチームを作ろう"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Kali Linux vs Parrot OS ― セキュリティ特化ディストリビューションを徹底比較"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

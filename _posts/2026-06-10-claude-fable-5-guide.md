@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Claude Fable 5 登場——Mythosクラス初の一般公開、6/22までサブスクで無料"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

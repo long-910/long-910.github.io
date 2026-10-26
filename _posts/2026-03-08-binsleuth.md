@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Rustで作ったバイナリ静的解析ツール「BinSleuth」の紹介"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

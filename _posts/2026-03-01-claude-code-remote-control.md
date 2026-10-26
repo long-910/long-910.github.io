@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Claude Code をスマホやタブレットからリモート操作する「/remote-control」完全ガイド"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

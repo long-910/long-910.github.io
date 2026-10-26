@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "AIが書いたコードをレビューする時間が、自分で書く時間を超えた——2026年の開発者事情を整理する"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

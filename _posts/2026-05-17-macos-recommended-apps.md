@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "MacOSおすすめアプリ完全ガイド 2026：用途別に厳選した必須ツール集"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

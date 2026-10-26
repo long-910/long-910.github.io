@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "YouCam APIが気になったので調べてみた - ARと生成AIで美容体験を作るとは"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

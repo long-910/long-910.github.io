@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "LeetCode の始め方と楽しみ方 - プログラミング力向上のための実践ガイド"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

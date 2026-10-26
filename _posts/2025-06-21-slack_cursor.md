@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Slack で Cursor を使いこなす - Background Agents でチーム開発を効率化"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

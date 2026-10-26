@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Jujutsuとは？ Gitとの関係とGitHub連携をわかりやすく解説"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

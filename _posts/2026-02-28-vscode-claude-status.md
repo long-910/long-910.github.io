@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Claude Code の使用量をVS Codeのステータスバーでリアルタイム監視する「vscode-claude-status」を作った"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

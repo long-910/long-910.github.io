@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "セキュリティ用語を体系的に整理する——ツール・攻撃手法・暗号技術を一気に押さえる"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

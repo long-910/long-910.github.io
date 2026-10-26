@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Windows WSL入門：インストールからUbuntu環境構築まで完全ガイド"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

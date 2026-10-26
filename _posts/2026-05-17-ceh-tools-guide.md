@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "レッドチームセキュリティ学習：ハッキングツールを5フェーズで整理"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

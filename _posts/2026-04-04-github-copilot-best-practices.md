@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "GitHub Copilot 実践活用術 ― 日常開発を加速する10のテクニック"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

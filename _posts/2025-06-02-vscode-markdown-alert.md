@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "VSCodeでGitHubスタイルのアラートを実現する「Markdown Alert」拡張機能の使い方"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

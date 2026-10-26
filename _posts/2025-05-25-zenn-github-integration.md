@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "ZennとGitHubの連携方法とzenn-cliの使い方"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn

@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "MacBook M5 に Hashcat をインストールして使ってみた"
-img_path: /assets/img/logos
 image:
-  path: logo-only.svg
+  path: /assets/img/logos/logo-only.svg
   width: 100%
   height: 100%
   alt: Zenn
